@@ -1,7 +1,4 @@
-# Devell DSM
-
-![Rabbet]
-(https://raw.githubusercontent.com/DevellSoftware/dsm/main/docs/assets/zajec.png)
+# Domain Structured Model
 
 Oh hello there.
 
@@ -12,6 +9,8 @@ Oh hello there.
 Then you can use this library, which I wrote for myself when having similar needs.
 
 Everything is still under heavy development, but the tested part works great.
+
+![Rabbet](https://raw.githubusercontent.com/DevellSoftware/dsm/main/docs/assets/zajec.png)
 
 ## Basic usage
 
