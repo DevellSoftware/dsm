@@ -1,7 +1,7 @@
 # Devell DSM
 
 ![Rabbet]
-(https://github.com/DevellSoftware/dsm/tree/main/docs/assets/zajec.png)
+(https://raw.githubusercontent.com/DevellSoftware/dsm/main/docs/assets/zajec.png)
 
 Oh hello there.
 
