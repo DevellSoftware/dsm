@@ -2,14 +2,10 @@ import { Field } from './field';
 import { TypeStructure, TypeCollection } from './type';
 
 export class Structure {
-  private fields: Field[] = [];
+  private fields: FieldDefinitions;
 
   constructor(public name: string, ...fields: Field[]) {
-    fields.forEach(f => this.addField(f));
-  }
-
-  addField(field: Field) {
-    this.fields.push(field);
+    this.fields = new FieldDefinitions(fields);
   }
 
   field(fieldName: string): Field {
@@ -36,7 +32,53 @@ export class Structure {
     return false;
   }
 
-  fieldDefinitions(): Field[] {
+  fieldDefinitions(): FieldDefinitions {
     return this.fields;
+  }
+}
+
+export class FieldDefinitions implements Iterable<Field> {
+  constructor(private fields: Field[]) {
+  }
+
+  add(field: Field) {
+    this.fields.push(field);
+  }
+
+  find(c) {
+    return this.fields.find(c)
+  }
+
+  remove(fieldName: string) {
+    const newFields = [];
+
+    for (const field of this.fields) {
+      if (field.name != fieldName) {
+        newFields.push(field);
+      }
+    }
+
+    this.fields = newFields;
+  }
+
+  [Symbol.iterator](): Iterator<Field> {
+    let pointer = 0;
+    const fields = (this.fields as Field[]);
+
+    return {
+      next(): IteratorResult<Field> {
+        if (pointer < fields.length) {
+          return {
+            done: false,
+            value: fields[pointer++]
+          }
+        } else {
+          return {
+            done: true,
+            value: null
+          }
+        }
+      }
+    }
   }
 }

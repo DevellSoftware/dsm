@@ -115,27 +115,27 @@ export class ProxyInstance extends Instance {
   constructor(model, structure: Structure) {
     super(model, structure);
 
-    structure.fieldDefinitions().forEach(f => {
-      Object.defineProperty(this, f.name, {
+    for (const field of structure.fieldDefinitions()) {
+      Object.defineProperty(this, field.name, {
         enumerable: true,
 
         get() {
-          if (this.structure.hasParent(f.name)) {
-            return this.parent(f.name);
+          if (this.structure.hasParent(field.name)) {
+            return this.parent(field.name);
           }
 
-          if (this.structure.hasMany(f.name)) {
-            return new ProxyCollection(this, f.name);
+          if (this.structure.hasMany(field.name)) {
+            return new ProxyCollection(this, field.name);
           }
 
-          return this.get(f.name);
+          return this.get(field.name);
         },
 
         set(v) {
-          return this.set(f.name, v);
+          return this.set(field.name, v);
         }
       })
-    });
+    };
   }
 }
 

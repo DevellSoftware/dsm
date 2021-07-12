@@ -1,4 +1,5 @@
 import { dsm } from './devell-dsm';
+import { FieldString } from './model/structure/field';
 
 
 describe('dsm', () => {
@@ -78,5 +79,15 @@ describe('dsm', () => {
 
     expect(task1.get("user")).not.toEqual(user1);
     expect(task1.parent("user")).toBeNull();
+  });
+
+  it('should allow to modify structure in fly', () => {
+    model.structure("user").fieldDefinitions().add(FieldString("newField"));
+
+    const user = model.create("user");
+
+    user.newField = "hello";
+
+    expect(user.get("newField")).toEqual("hello");
   });
 });
