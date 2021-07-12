@@ -1,4 +1,4 @@
-# Domain Structured Model
+# Bunney - Domain Structured Model library
 
 Oh hello there.
 
