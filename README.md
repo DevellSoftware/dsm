@@ -10,7 +10,7 @@ Then you can use this library, which I wrote for myself when having similar need
 
 Everything is still under heavy development, but the tested part works great.
 
-![Rabbet](https://raw.githubusercontent.com/DevellSoftware/dsm/main/docs/assets/zajec.png)
+![Rabbet](https://raw.githubusercontent.com/DevellSoftware/dsm/main/docs/assets/bunney.png)
 
 ## Basic usage
 
