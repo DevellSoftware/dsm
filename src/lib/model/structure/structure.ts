@@ -1,5 +1,5 @@
 import { Field } from './field';
-import { TypeStructure } from './type';
+import { TypeStructure, TypeCollection } from './type';
 
 export class Structure {
   private fields: Field[] = [];
@@ -16,7 +16,6 @@ export class Structure {
     return this.fields.find(f => f.name == fieldName);
   }
 
-
   hasParent(name: string): boolean {
     for (const field of this.fields) {
       if (field.type == TypeStructure && field.name == name) {
@@ -25,5 +24,19 @@ export class Structure {
     }
 
     return false;
+  }
+
+  hasMany(name: string): boolean {
+    for (const field of this.fields) {
+      if (field.type == TypeCollection && field.name == name) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  fieldDefinitions(): Field[] {
+    return this.fields;
   }
 }

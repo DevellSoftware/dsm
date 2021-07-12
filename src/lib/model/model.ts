@@ -1,5 +1,5 @@
 import { Structure } from './structure/structure';
-import { Instance } from './instance/instance';
+import { Instance, ProxyInstance } from './instance/instance';
 import { Reference } from './structure/field';
 
 export class Model {
@@ -15,12 +15,12 @@ export class Model {
     this.structures[structure.name] = structure
   }
 
-  create(name: string): Instance {
+  create(name: string): ProxyInstance {
     if (typeof this.structures[name] == "undefined") {
       throw new Error("Structure not found.");
     }
 
-    return new Instance(this, this.structures[name]);
+    return new ProxyInstance(this, this.structures[name]);
   }
 
   structure(structure: string | Reference): Structure {

@@ -11,3 +11,7 @@ export class SetValue {
 export class AddChild {
   constructor(public fieldName: string, public child: Instance) {}
 }
+
+export class RemoveChild {
+  constructor(public fieldName: string, public child: Instance) {}
+}
