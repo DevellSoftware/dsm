@@ -1,5 +1,8 @@
 # Devell DSM
 
+![Rabbet]
+(https://github.com/DevellSoftware/dsm/tree/main/docs/assets/zajec.png)
+
 Oh hello there.
 
 * Do you need a typescript library for working with modeled state objects?
